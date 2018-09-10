@@ -10,7 +10,7 @@ template <class T>
 class AVLTree {
     public:
         AVLTree();
-        void add(T);
+        void add(T*);
 
     private:
         Node<T>* root;

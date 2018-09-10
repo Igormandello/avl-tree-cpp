@@ -6,10 +6,11 @@
 template <class T>
 class Node {
     public:
-        Node(T);
+        Node(T*);
+        void add(T*);
 
     private:
-        T info;
+        T* info;
         Node<T>* left;
         Node<T>* right;
 };

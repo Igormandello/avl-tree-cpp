@@ -4,6 +4,9 @@ AVLTree<T>::AVLTree() {
 }
 
 template<class T>
-void AVLTree<T>::add(T newInfo) {
-    this->root = new Node<T>(newInfo);
+void AVLTree<T>::add(T* newInfo) {
+    if (this->root == NULL)
+        this->root = new Node<T>(newInfo);
+    else
+        this->root->add(newInfo);
 }
