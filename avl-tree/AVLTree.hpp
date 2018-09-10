@@ -10,7 +10,8 @@ template <class T>
 class AVLTree {
     public:
         AVLTree();
-        void add(T*);
+        void add(T);
+        void print(ostream&);
 
     private:
         Node<T>* root;

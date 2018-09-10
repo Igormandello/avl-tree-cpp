@@ -3,16 +3,23 @@
 
 #include <iostream>
 
+using namespace std;
+
 template <class T>
 class Node {
     public:
-        Node(T*);
-        void add(T*);
+        Node(T);
+        void add(T);
+        void print(ostream&);
 
     private:
-        T* info;
+        T info;
         Node<T>* left;
         Node<T>* right;
+        int factor;
+
+        void calcFactor();
+        int maxHeight(int);
 };
 
 #include "Node.cpp"
