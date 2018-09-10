@@ -32,6 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="AVLTree.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="AVLTree.hpp" />
+		<Unit filename="Node.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Node.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
