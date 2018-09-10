@@ -12,17 +12,70 @@ void Node<T>::add(T info) {
     if (this->info > info)
         if (this->left != NULL) {
             this->left->add(info);
-            this->left->calcFactor();
+            /*this->left->calcFactor();
+
+            if (abs(this->left->factor) > 1)
+                this->left->balance();*/
         } else
             this->left = new Node<T>(info);
     else
         if (this->right != NULL) {
             this->right->add(info);
-            this->left->calcFactor();
+            /*this->right->calcFactor();
+
+            if (abs(this->right->factor) > 1)
+                this->right->balance();*/
         } else
             this->right = new Node<T>(info);
 
     this->calcFactor();
+    if (abs(this->factor) > 1)
+        this->balance();
+}
+
+template<class T>
+void Node<T>::balance() {
+    if (this->factor > 1) {
+        if (this->right->left == NULL) //Left rotation
+            this->leftRotation();
+        else if (this->right->right == NULL) { //Right left rotation
+            this->right->rightRotation();
+            this->leftRotation();
+        } else { //Left rotation with child
+            cout << "To Do";
+        }
+    } else if (this->factor < -1) {
+        if (this->left->right == NULL) //Right rotation
+            this->rightRotation();
+        else if (this->left->left == NULL) { //Left right rotation
+            this->left->leftRotation();
+            this->rightRotation();
+        } else { //Right rotation with child
+            cout << "To Do";
+        }
+    }
+
+    this->calcFactor();
+}
+
+template<class T>
+void Node<T>::leftRotation() {
+    Node<T>* aux = this->right;
+    this->right = aux->left;
+    swap(*this, *aux);
+
+    this->left = aux;
+    aux->calcFactor();
+}
+
+template<class T>
+void Node<T>::rightRotation() {
+    Node<T>* aux = this->left;
+    this->left = aux->right;
+    swap(*this, *aux);
+
+    this->right = aux;
+    aux->calcFactor();
 }
 
 template<class T>

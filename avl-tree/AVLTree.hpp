@@ -12,6 +12,7 @@ class AVLTree {
         AVLTree();
         void add(T);
         void print(ostream&);
+        void balance();
 
     private:
         Node<T>* root;

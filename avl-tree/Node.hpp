@@ -2,6 +2,7 @@
 #define NODE_INCLUDED
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,6 +21,9 @@ class Node {
 
         void calcFactor();
         int maxHeight(int);
+        void balance();
+        void leftRotation();
+        void rightRotation();
 };
 
 #include "Node.cpp"

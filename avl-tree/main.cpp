@@ -5,13 +5,14 @@ using namespace std;
 
 int main()
 {
-    AVLTree<int> *t = new AVLTree<int>();
+    AVLTree<char> *t = new AVLTree<char>();
 
-    int data[] = { 5, 4, 3 };
-    for (int n = 0; n < 3; n++)
+    char data[] = { 'N', 'L', 'P', 'K', 'M', 'O', 'Q', 'H', 'I' };
+    for (int n = 0; n < 9; n++) {
         t->add(data[n]);
-
-    t->print(cout);
+        t->print(cout);
+        cout << endl;
+    }
 
     return 0;
 }
