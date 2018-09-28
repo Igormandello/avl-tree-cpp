@@ -11,6 +11,7 @@ class Node {
     public:
         Node(T);
         void add(T);
+        T* get(T);
         void print(ostream&);
 
     private:

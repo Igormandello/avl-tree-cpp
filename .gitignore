@@ -32,3 +32,6 @@
 *.app
 *.layout
 *.depend
+
+bin/
+obj/

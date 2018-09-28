@@ -34,6 +34,18 @@ void Node<T>::add(T info) {
 }
 
 template<class T>
+T* Node<T>::get(T desiredInfo) {
+    if (desiredInfo == this->info)
+        return &this->info;
+    else if (desiredInfo < this->info && this->left != NULL)
+        return this->left->get(desiredInfo);
+    else if (desiredInfo > this->info && this->right != NULL)
+        return this->right->get(desiredInfo);
+    else
+        return NULL;
+}
+
+template<class T>
 void Node<T>::balance() {
     if (this->factor > 1) {
         if (this->right->left == NULL) //Left rotation

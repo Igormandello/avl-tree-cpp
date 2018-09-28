@@ -12,6 +12,14 @@ void AVLTree<T>::add(T newInfo) {
 }
 
 template<class T>
+T* AVLTree<T>::get(T desiredInfo) {
+    if (this->root == NULL)
+        return NULL;
+    else
+        return this->root->get(desiredInfo);
+}
+
+template<class T>
 void AVLTree<T>::print(ostream &os) {
     if (this->root != NULL)
         this->root->print(os);
