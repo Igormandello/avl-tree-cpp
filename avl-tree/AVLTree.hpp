@@ -11,6 +11,7 @@ class AVLTree {
     public:
         AVLTree();
         void add(T);
+        void remove(T);
         T* get(T);
         void print(ostream&);
         void balance();

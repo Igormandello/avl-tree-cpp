@@ -12,6 +12,18 @@ void AVLTree<T>::add(T newInfo) {
 }
 
 template<class T>
+void AVLTree<T>::remove(T info) {
+    if (this->root != NULL) {
+        this->root->remove(info);
+
+        if (this->root->isEmpty()) {
+            delete this->root;
+            this->root = NULL;
+        }
+    }
+}
+
+template<class T>
 T* AVLTree<T>::get(T desiredInfo) {
     if (this->root == NULL)
         return NULL;

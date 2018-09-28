@@ -34,6 +34,53 @@ void Node<T>::add(T info) {
 }
 
 template<class T>
+void Node<T>::remove(T info) {
+    if (info == this->info) {
+        if (this->left == NULL && this->right == NULL)
+            this->info = NULL;
+        else if (this->right != NULL) {
+            T minInfo = this->right->getMin();
+            this->right->remove(minInfo);
+
+            if (this->right->info == NULL) {
+                delete this->right;
+                this->right = NULL;
+            }
+
+            this->info = minInfo;
+        } else {
+            T maxInfo = this->left->getMax();
+            this->left->remove(maxInfo);
+
+            if (this->left->info == NULL) {
+                delete this->left;
+                this->left = NULL;
+            }
+
+            this->info = maxInfo;
+        }
+    } else if (info < this->info && this->left != NULL) {
+        this->left->remove(info);
+
+        if (this->left->info == NULL) {
+            delete this->left;
+            this->left = NULL;
+        }
+    } else if (info > this->info && this->right != NULL) {
+        this->right->remove(info);
+
+        if (this->right->info == NULL) {
+            delete this->right;
+            this->right = NULL;
+        }
+    }
+
+    this->calcFactor();
+    if (abs(this->factor) > 1)
+        this->balance();
+}
+
+template<class T>
 T* Node<T>::get(T desiredInfo) {
     if (desiredInfo == this->info)
         return &this->info;
@@ -43,6 +90,22 @@ T* Node<T>::get(T desiredInfo) {
         return this->right->get(desiredInfo);
     else
         return NULL;
+}
+
+template<class T>
+T Node<T>::getMin() {
+    if (this->left != NULL)
+        return this->left->getMin();
+    else
+        return this->info;
+}
+
+template<class T>
+T Node<T>::getMax() {
+    if (this->right != NULL)
+        return this->right->getMax();
+    else
+        return this->info;
 }
 
 template<class T>
@@ -120,6 +183,11 @@ int Node<T>::maxHeight(int motherHeight) {
     }
 
     return mHeight;
+}
+
+template<class T>
+bool Node<T>::isEmpty() {
+    return this->info == NULL;
 }
 
 template<class T>

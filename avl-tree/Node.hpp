@@ -11,7 +11,11 @@ class Node {
     public:
         Node(T);
         void add(T);
+        void remove(T);
         T* get(T);
+        T getMin();
+        T getMax();
+        bool isEmpty();
         void print(ostream&);
 
     private:
