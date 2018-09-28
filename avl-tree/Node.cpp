@@ -191,14 +191,16 @@ bool Node<T>::isEmpty() {
 }
 
 template<class T>
-void Node<T>::print(ostream &os) {
+ostream& operator<<(ostream &os, const Node<T>& node) {
     os << "(";
-    if (this->left != NULL)
-        this->left->print(os);
+    if (node.left != NULL)
+        os << *node.left;
 
-    os << "{ " << this->info << ", " << this->factor << " }";
+    os << "{ " << node.info << ", " << node.factor << " }";
 
-    if (this->right != NULL)
-        this->right->print(os);
+    if (node.right != NULL)
+        os << *node.right;
     os << ")";
+
+    return os;
 }

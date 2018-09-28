@@ -32,7 +32,9 @@ T* AVLTree<T>::get(T desiredInfo) {
 }
 
 template<class T>
-void AVLTree<T>::print(ostream &os) {
-    if (this->root != NULL)
-        this->root->print(os);
+ostream& operator<<(ostream& os, const AVLTree<T>& a) {
+    if (a.root != NULL)
+        os << *a.root;
+
+    return os;
 }

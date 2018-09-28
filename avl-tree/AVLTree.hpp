@@ -13,7 +13,8 @@ class AVLTree {
         void add(T);
         void remove(T);
         T* get(T);
-        void print(ostream&);
+        template <class U>
+        friend ostream& operator<<(ostream&, const AVLTree<U>&);
         void balance();
 
     private:

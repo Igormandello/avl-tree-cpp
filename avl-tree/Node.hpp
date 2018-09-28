@@ -16,7 +16,8 @@ class Node {
         T getMin();
         T getMax();
         bool isEmpty();
-        void print(ostream&);
+        template <class U>
+        friend ostream& operator<<(ostream&, const Node<U>&);
 
     private:
         T info;
