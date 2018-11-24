@@ -6,8 +6,8 @@ using namespace std;
 int main() {
   AVLTree<char> t;
 
-  char data[] = {'N', 'L', 'P', 'K', 'M', 'O', 'Q', 'H', 'I'};
-  for (int n = 0; n < 9; n++) {
+  char data[] = {'M', 'N', 'O', 'L', 'K', 'Q', 'P', 'H', 'I', 'A'};
+  for (int n = 0; n < 10; n++) {
     t.add(data[n]);
     cout << t;
     cout << endl;

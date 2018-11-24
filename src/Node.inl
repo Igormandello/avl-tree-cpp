@@ -10,21 +10,13 @@ Node<T>::Node(T info) {
 template <class T>
 void Node<T>::add(T info) {
   if (this->info > info)
-    if (this->left != NULL) {
+    if (this->left != NULL)
       this->left->add(info);
-      /*this->left->calcFactor();
-
-      if (abs(this->left->factor) > 1)
-          this->left->balance();*/
-    } else
+    else
       this->left = new Node<T>(info);
-  else if (this->right != NULL) {
+  else if (this->right != NULL)
     this->right->add(info);
-    /*this->right->calcFactor();
-
-    if (abs(this->right->factor) > 1)
-        this->right->balance();*/
-  } else
+  else
     this->right = new Node<T>(info);
 
   this->calcFactor();
@@ -110,22 +102,18 @@ T Node<T>::getMax() {
 template <class T>
 void Node<T>::balance() {
   if (this->factor > 1) {
-    if (this->right->left == NULL)  // Left rotation
+    if (this->right->right != NULL)  // Left rotation and Left rotation with child
       this->leftRotation();
-    else if (this->right->right == NULL) {  // Right left rotation
+    else {  // Right left rotation
       this->right->rightRotation();
       this->leftRotation();
-    } else {  // Left rotation with child
-      cout << "To Do";
     }
   } else if (this->factor < -1) {
-    if (this->left->right == NULL)  // Right rotation
+    if (this->left->left != NULL)  // Right rotation and Right rotation with child
       this->rightRotation();
-    else if (this->left->left == NULL) {  // Left right rotation
+    else {  // Left right rotation
       this->left->leftRotation();
       this->rightRotation();
-    } else {  // Right rotation with child
-      cout << "To Do";
     }
   }
 
