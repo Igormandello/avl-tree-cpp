@@ -21,6 +21,6 @@ class AVLTree {
     Node<T>* root;
 };
 
-#include "AVLTree.cpp"
+#include "AVLTree.inl"
 
 #endif  // AVLTREE_INCLUDED

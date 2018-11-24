@@ -32,6 +32,6 @@ class Node {
     void rightRotation();
 };
 
-#include "Node.cpp"
+#include "Node.inl"
 
 #endif  // NODE_INCLUDED
