@@ -1,18 +1,17 @@
-#include "AVLTree.hpp"
 #include <iostream>
+#include "AVLTree.hpp"
 
 using namespace std;
 
-int main()
-{
-    AVLTree<char> t;
+int main() {
+  AVLTree<char> t;
 
-    char data[] = { 'N', 'L', 'P', 'K', 'M', 'O', 'Q', 'H', 'I' };
-    for (int n = 0; n < 9; n++) {
-        t.add(data[n]);
-        cout << t;
-        cout << endl;
-    }
+  char data[] = {'N', 'L', 'P', 'K', 'M', 'O', 'Q', 'H', 'I'};
+  for (int n = 0; n < 9; n++) {
+    t.add(data[n]);
+    cout << t;
+    cout << endl;
+  }
 
-    return 0;
+  return 0;
 }
