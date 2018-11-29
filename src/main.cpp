@@ -10,7 +10,7 @@ int main() {
   for (int n = 0; n < 10; n++) {
     t.add(data[n]);
     cout << t;
-    cout << endl;
+    cout << endl << endl;
   }
 
   return 0;

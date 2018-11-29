@@ -38,8 +38,28 @@ T* AVLTree<T>::get(T desiredInfo) {
 
 template <class T>
 ostream& operator<<(ostream& os, const AVLTree<T>& a) {
-  if (a.root != NULL)
-    os << *a.root;
+  queue<Node<T>*> q;
+  q.push(a.root);
+
+  int traversed = 0, level = 0;
+  while (!q.empty()) {
+    Node<T>* current = q.front();
+    q.pop();
+    traversed++;
+
+    if (current == NULL)
+      os << "{}";
+    else {
+      current->enqueueChildren(q);
+      os << *current;
+    }
+
+    if (traversed == pow(2, level)) {
+      level++;
+      traversed = 0;
+      os << endl;
+    }
+  }
 
   return os;
 }

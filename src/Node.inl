@@ -175,16 +175,26 @@ bool Node<T>::isEmpty() {
 }
 
 template <class T>
+void Node<T>::enqueueChildren(queue<Node<T>*>& q) {
+  q.push(this->left);
+  q.push(this->right);
+}
+
+template <class T>
 ostream& operator<<(ostream& os, const Node<T>& node) {
+  /*
   os << "(";
   if (node.left != NULL)
     os << *node.left;
-
+  */
   os << "{ " << node.info << ", " << node.factor << " }";
-
+  /*
   if (node.right != NULL)
     os << *node.right;
   os << ")";
+  */
+
+
 
   return os;
 }

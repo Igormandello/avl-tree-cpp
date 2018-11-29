@@ -2,6 +2,8 @@
 #define AVLTREE_INCLUDED
 
 #include <iostream>
+#include <queue>
+#include <cmath>
 #include "Node.hpp"
 
 using namespace std;

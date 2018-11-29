@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <queue>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Node {
     T getMin();
     T getMax();
     bool isEmpty();
+    void enqueueChildren(queue<Node<T>*>&);
     template <class U>
     friend ostream& operator<<(ostream&, const Node<U>&);
 
