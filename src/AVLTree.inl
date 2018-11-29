@@ -24,6 +24,11 @@ void AVLTree<T>::remove(T info) {
 }
 
 template <class T>
+bool AVLTree<T>::isEmpty() {
+  return this->root == NULL;
+}
+
+template <class T>
 T* AVLTree<T>::get(T desiredInfo) {
   if (this->root == NULL)
     return NULL;

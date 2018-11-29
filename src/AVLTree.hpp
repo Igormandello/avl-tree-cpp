@@ -12,6 +12,7 @@ class AVLTree {
     AVLTree();
     void add(T);
     void remove(T);
+    bool isEmpty();
     T* get(T);
     template <class U>
     friend ostream& operator<<(ostream&, const AVLTree<U>&);
